@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class CustomConnection {
-    final static String url = "jdbc:h2:mem:test;INIT=RUNSCRIPT FROM './schema.sql'\\;RUNSCRIPT FROM './data.sql'";
+    final static String url = "jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;" +
+            "INIT=RUNSCRIPT FROM './src/main/resources/schema.sql'\\;" +
+            "RUNSCRIPT FROM './src/main/resources/data.sql'";
     private static Connection connection;
 
     private CustomConnection() {
